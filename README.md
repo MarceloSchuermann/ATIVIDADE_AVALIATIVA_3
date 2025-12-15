@@ -8,5 +8,5 @@
 
 | Aluno | Curso | GitHub |
 | :--- | :---: | :---: |
-| **Marcelo Schuermann** | ADS | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/SEU-USUARIO) |
-| **Bernardo Haro** | ADS | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/SEU-USUARIO) |
+| **Marcelo Schuermann** | ADS | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/MarceloSchuermann) |
+| **Bernardo Haro** | ADS | [![GitHub](https://img.shields.io/badge/GitHub-100000?style=flat&logo=github&logoColor=white)](https://github.com/akaharo) |
