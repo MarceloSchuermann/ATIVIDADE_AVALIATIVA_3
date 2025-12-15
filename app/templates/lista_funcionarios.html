@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listagem de Funcionários</title>
+    
+    <style type="text/css">
+        /* Estilo para dar uma margem na página, como você solicitou */
+        html {
+            margin: 2%;
+        }
+    </style>
+    
+    {# Importa os arquivos CSS e JavaScript do Bootstrap via django-bootstrap5 #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    
+    {# O botão de voltar foi mantido fora do <head> pois não é válido aqui #}
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Listagem de Funcionários</h1>
+
+        {# Primeira Forma de Listagem (Usando <li>) #}
+        {% for funcionario in object_list %}
+            <li>{{ funcionario.nome }}</li>
+            
+            {# Links de Ação da primeira listagem #}
+            <a href="{% url 'listar_funcionario' pk=funcionario.id %}" class="btn btn-sm btn-info">Exibir dados</a>
+            <a href="{% url 'editar_funcionario' pk=funcionario.id %}" class="btn btn-sm btn-warning">Editar</a>
+            <a href="{% url 'remover_funcionario' pk=funcionario.id %}" class="btn btn-sm btn-danger">Remover</a>
+            
+            <hr>
+        {% endfor %}
+        
+        <br>
+        
+        {# Segunda Forma de Listagem (Usando Tabela) #}
+        <h2>Lista Detalhada (Tabela)</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nome do Funcionário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for funcionario in object_list %}
+                    <tr>
+                        <td>
+                            {{ funcionario.nome }}
+                        </td>
+                        <td>
+                            <a href="{% url 'listar_funcionario' pk=funcionario.id %}" class="btn btn-primary">Exibir dados</a>
+                            <a href="{% url 'editar_funcionario' pk=funcionario.id %}" class="btn btn-success">Editar</a>
+                            <a href="{% url 'remover_funcionario' pk=funcionario.id %}" class="btn btn-danger">Remover</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{% url 'form_funcionario' %}" class="btn btn-primary">Cadastrar um novo funcionário</a>
+        
+        {# Exemplo de onde o botão de voltar poderia ser colocado, fora do loop de lista #}
+        <button type="button" class="btn btn-secondary mt-3" onClick="history.go(-1)"> Voltar </button>
+        
+    </div>
+</body>
+</html>
